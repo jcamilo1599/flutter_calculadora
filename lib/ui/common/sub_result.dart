@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class SubResult extends StatelessWidget {
   final String text;
 
   const SubResult({
-    Key? key,
     required this.text,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -17,7 +17,7 @@ class SubResult extends StatelessWidget {
         text,
         style: const TextStyle(
           fontSize: 28,
-          color: CupertinoColors.systemGrey,
+          color: Colors.grey,
           fontWeight: FontWeight.w300,
         ),
       ),
