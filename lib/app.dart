@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'ui/common/tokens/themes.dart';
 import 'ui/pages/calculator.dart';
 
 class App extends StatelessWidget {
@@ -7,10 +8,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calculadora',
-      home: CalculatorPage(),
+      home: const CalculatorPage(),
+      theme: Themes.light,
+      darkTheme: Themes.dark,
     );
   }
 }
