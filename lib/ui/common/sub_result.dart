@@ -17,7 +17,7 @@ class SubResult extends StatelessWidget {
         text,
         style: const TextStyle(
           fontSize: 28,
-          color: Colors.grey,
+          color: Color(0xffa9a9a9),
           fontWeight: FontWeight.w300,
         ),
       ),

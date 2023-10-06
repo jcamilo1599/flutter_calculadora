@@ -101,9 +101,33 @@ class CalculatorController extends GetxController {
         break;
     }
 
-    if (mathResult.value.endsWith('.0')) {
+    // Divide el valor del resultado
+    final List<String> splitResult = mathResult.value.split('.');
+
+    // Lista de decimales prohibidos
+    final List<String> forbiddenDecimals = <String>[
+      '10',
+      '20',
+      '30',
+      '40',
+      '50',
+      '60',
+      '70',
+      '80',
+      '90'
+    ];
+
+    if (mathResult.value.endsWith(',0') || mathResult.value.endsWith('.0')) {
       mathResult.value =
           mathResult.value.substring(0, mathResult.value.length - 2);
+    } else if (mathResult.value.endsWith(',00') ||
+        mathResult.value.endsWith('.00')) {
+      mathResult.value =
+          mathResult.value.substring(0, mathResult.value.length - 3);
+    } else if (splitResult.length > 1 &&
+        forbiddenDecimals.contains(splitResult[1])) {
+      mathResult.value =
+          mathResult.value.substring(0, mathResult.value.length - 1);
     }
 
     mathResult.value = mathResult.value.replaceAll('.', ',');

@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calculadora',
-      home: const CalculatorPage(),
+      home: CalculatorPage(),
       theme: Themes.light,
       darkTheme: Themes.dark,
     );

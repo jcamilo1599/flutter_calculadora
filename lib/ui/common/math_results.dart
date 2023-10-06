@@ -19,13 +19,13 @@ class MathResults extends StatelessWidget {
 
       return Column(
         children: <Widget>[
-          SubResult(text: subResult.thousand),
+          SubResult(text: subResult),
           if (controller.mathResult.isNotEmpty)
-            const Divider(
+            Divider(
               height: 20,
-              color: Colors.grey,
+              color: Colors.grey.withOpacity(.2),
             ),
-          MainResultText(text: controller.mathResult.toString().thousand),
+          MainResultText(text: controller.mathResult.toString()),
         ],
       );
     });
