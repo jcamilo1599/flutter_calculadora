@@ -14,8 +14,10 @@ class MathResults extends StatelessWidget {
     final CalculatorController controller = Get.find<CalculatorController>();
 
     return Obx(() {
+      final String firstNumber = controller.firstNumber.toString().thousand;
+      final String secondNumber = controller.secondNumber.toString().thousand;
       final String subResult =
-          '${controller.firstNumber}${controller.operation}${controller.secondNumber}';
+          '$firstNumber${controller.operation}$secondNumber';
 
       return Column(
         children: <Widget>[
@@ -25,7 +27,7 @@ class MathResults extends StatelessWidget {
               height: 20,
               color: Colors.grey.withOpacity(.2),
             ),
-          MainResultText(text: controller.mathResult.toString()),
+          MainResultText(text: controller.mathResult.toString().thousand),
         ],
       );
     });
