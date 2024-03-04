@@ -27,7 +27,7 @@ class MathResults extends StatelessWidget {
               height: 20,
               color: Colors.grey.withOpacity(.2),
             ),
-          MainResultText(text: controller.mathResult.toString().thousand),
+          MainResultText(text: controller.mathResult.value.thousand),
         ],
       );
     });

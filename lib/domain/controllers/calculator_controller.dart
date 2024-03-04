@@ -16,8 +16,8 @@ class CalculatorController extends GetxController {
   }
 
   void changeNegativePositive() {
-    if (mathResult.startsWith('-')) {
-      mathResult.value = mathResult.value.replaceFirst('-', '');
+    if (mathResult.startsWith(' - ')) {
+      mathResult.value = mathResult.value.replaceFirst(' - ', '');
     } else {
       mathResult.value = '-${mathResult.value}';
     }
@@ -59,7 +59,7 @@ class CalculatorController extends GetxController {
   }
 
   void deleteLastEntry() {
-    if (mathResult.value.replaceAll('-', '').length > 1) {
+    if (mathResult.value.replaceAll(' - ', '').length > 1) {
       mathResult.value =
           mathResult.value.substring(0, mathResult.value.length - 1);
     } else {
@@ -87,22 +87,29 @@ class CalculatorController extends GetxController {
     secondNumber.value = mathResult.value;
 
     switch (operation.value) {
-      case '+':
+      case ' + ':
         mathResult.value = (num1 + num2).toStringAsFixed(2);
         break;
-      case '-':
+      case ' - ':
         mathResult.value = (num1 - num2).toStringAsFixed(2);
         break;
-      case '/':
+      case ' / ':
         mathResult.value = (num1 / num2).toStringAsFixed(6);
         break;
-      case 'X':
+      case ' x ':
         mathResult.value = (num1 * num2).toString();
         break;
     }
 
     // Divide el valor del resultado
-    final List<String> splitResult = mathResult.value.split('.');
+    List<String> splitResult = mathResult.value.split('.');
+
+    if (splitResult.length > 1 && splitResult[1].length > 2) {
+      mathResult.value = double.parse(mathResult.value).toStringAsFixed(2);
+    }
+
+    // Divide el valor del resultado
+    splitResult = mathResult.value.split('.');
 
     // Lista de decimales prohibidos
     final List<String> forbiddenDecimals = <String>[

@@ -10,9 +10,9 @@ extension StringExt on String {
         (splitDecimal.length > 1) ? ',${splitDecimal[1]}' : '';
 
     // En caso de ser un valor negativo
-    final List<String> splitNegative = split('-');
+    final List<String> splitNegative = split(' - ');
     final bool isNegative = splitNegative[0] == '';
-    final String denial = isNegative ? '-' : '';
+    final String denial = isNegative ? ' - ' : '';
 
     // Obtiene el valor
     final String value =
